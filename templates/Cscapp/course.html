@@ -1,0 +1,13 @@
+{% include 'Cscapp/header.html' %}
+{% load staticfiles %}
+<h1>This is the OAU Part 2 Tech WebApp</h1>
+{% if courses %}
+    <ul>
+    {% for course in courses %}
+        <li><a href="/Cscapp/course/{{ course.code }}"> {{ course.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <strong>Favour is awesome</strong>
+{% endif %}
+{% include 'Cscapp/footer.html' %}

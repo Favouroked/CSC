@@ -1,0 +1,23 @@
+{% include 'Cscapp/header.html' %}
+<h1>{{ course.title }}</h1>
+<h6>{{ course.text }}</h6>
+{% if textbook %}
+<ul>
+    {% for text in textbook %}
+        <li><strong>{{ text.description }}</strong>{{ text.title }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+    <strong>There are no textbooks for you. Ntooor!</strong>
+{% endif %}
+{% if video %}
+    <strong>We have some videos for you that will help you with the course:</strong>
+<ul>
+    {% for vid in video %}
+        <li><a href="{{ vid.url }}">{{ vid.title }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+    <strong>There are no videos for you. Ntoor!</strong>
+{% endif %}
+{% include 'Cscapp/footer.html' %}
