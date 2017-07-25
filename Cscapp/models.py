@@ -7,6 +7,8 @@ from django.template.defaultfilters import slugify
 class Course(models.Model):
     title = models.CharField(max_length=300, unique=True, default="Title")
     code = models.CharField(max_length=145, unique=True)
+    unit = models.IntegerField(default=0)
+    introductory = models.TextField(blank=True, null=True)
     text = models.TextField()
 
     class Meta:

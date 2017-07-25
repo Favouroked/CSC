@@ -6,12 +6,14 @@ from Cscapp.models import Video
 # Create your views here.
 
 def course(request):
-    course_list = Course.objects.all()[:5]
+    course_list = Course.objects.all()[:10]
     context_dict = {'courses': course_list}
-    return render(request, 'Cscapp/course.html', context_dict)
+    template = 'Cscapp/course.html'
+    return render(request, template, context_dict)
 
 def show_course(request, course_code):
     context_dict = {}
+    template = 'Cscapp/show_course.html'
 
     try:
         course = Course.objects.get(code=course_code)
@@ -25,4 +27,4 @@ def show_course(request, course_code):
         context_dict['textbook'] = None
         context_dict['video'] = None
 
-    return render(request, 'Cscapp/show_course.html', context_dict)
+    return render(request, template, context_dict)
